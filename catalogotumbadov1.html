@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TUMBADO GUITAR | Catálogo Oficial</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --rojo: #ff202e;
+    --rojo-oscuro: #970b15;
+    --negro: #080808;
+    --gris: #171717;
+    --blanco: #f5f5f5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: var(--blanco);
+    font-family: 'Oswald', sans-serif;
+}
+
+/* FONDO OSCURO CON TEXTURA Y GRAFITI */
+.pagina {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    max-width: 950px;
+    min-height: 1000px;
+    margin: 25px auto;
+    padding: 55px;
+    background:
+        radial-gradient(ellipse at 10% 15%,
+            rgba(100,100,100,.12), transparent 35%),
+        radial-gradient(ellipse at 90% 75%,
+            rgba(255,0,20,.06), transparent 35%),
+        repeating-linear-gradient(115deg,
+            transparent 0 3px,
+            rgba(255,255,255,.012) 4px,
+            transparent 6px),
+        #080808;
+    border: 1px solid #222;
+    box-shadow: 0 0 35px #000;
+    page-break-after: always;
+    break-after: page;
+}
+
+/* MARCAS ROJAS DECORATIVAS */
+.pagina::before,
+.pagina::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 150px;
+    height: 210px;
+    opacity: .65;
+    pointer-events: none;
+}
+
+.pagina::before {
+    top: 35px;
+    left: -70px;
+    background:
+        linear-gradient(60deg, transparent 43%,
+            var(--rojo) 44% 47%, transparent 48%),
+        linear-gradient(120deg, transparent 43%,
+            var(--rojo) 44% 47%, transparent 48%);
+    transform: rotate(-15deg);
+}
+
+.pagina::after {
+    right: -65px;
+    bottom: 30px;
+    background:
+        linear-gradient(60deg, transparent 43%,
+            var(--rojo) 44% 47%, transparent 48%),
+        linear-gradient(120deg, transparent 43%,
+            var(--rojo) 44% 47%, transparent 48%);
+    transform: rotate(18deg);
+}
+
+header {
+    background: #050505;
+    padding: 25px 15px;
+    text-align: center;
+    border-bottom: 3px solid var(--rojo);
+}
+
+.logo-titulo {
+    font-family: 'Kaushan Script', cursive;
+    color: var(--rojo);
+    font-size: clamp(38px, 7vw, 65px);
+    text-shadow: 3px 3px 0 #480007;
+    line-height: 1.15;
+}
+
+.subtitulo {
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 12px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 22px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: var(--rojo);
+}
+
+button {
+    border: 0;
+    background: var(--rojo);
+    color: white;
+    padding: 10px 15px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(32px, 5vw, 49px);
+    line-height: 1.1;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+    color: var(--rojo);
+    text-shadow: 2px 2px 0 #470008;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: var(--rojo);
+    text-transform: uppercase;
+    margin: 15px 0 8px;
+    font-weight: 600;
+}
+
+p {
+    color: #ddd;
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.portada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo-imagen {
+    display: block;
+    width: 310px;
+    max-width: 90%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    margin: 25px auto;
+}
+
+.nombre-marca {
+    font-family: 'Kaushan Script', cursive;
+    color: var(--rojo);
+    font-size: clamp(55px, 10vw, 100px);
+    line-height: 1;
+    text-shadow: 4px 4px 0 #500008;
+}
+
+.raya {
+    width: 180px;
+    height: 5px;
+    background: var(--rojo);
+    margin: 25px auto;
+    transform: skew(-25deg);
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.tarjeta {
+    padding: 20px;
+    background: rgba(23,23,23,.93);
+    border: 1px solid #333;
+    border-bottom: 3px solid var(--rojo);
+}
+
+.tarjeta:hover {
+    border-color: var(--rojo);
+}
+
+.foto-producto {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    background: #0b0b0b;
+    border: 1px dashed #555;
+    margin-bottom: 15px;
+}
+
+.instrumento {
+    text-align: center;
+}
+
+.precio {
+    color: var(--rojo);
+    font-size: 30px;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.nota {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.indice {
+    list-style: none;
+}
+
+.indice li {
+    border-bottom: 1px solid #333;
+    padding: 14px 0;
+}
+
+.indice a {
+    color: white;
+    text-decoration: none;
+}
+
+.indice a:hover {
+    color: var(--rojo);
+}
+
+.cita {
+    margin: 30px 0;
+    padding: 20px;
+    border-left: 5px solid var(--rojo);
+    background: #141414;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 27px;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 35px;
+    background: #050505;
+    border-top: 3px solid var(--rojo);
+}
+
+@media(max-width:600px) {
+    .pagina {
+        min-height: 850px;
+        padding: 30px 20px;
+        margin: 10px auto;
+    }
+
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .foto-producto {
+        height: 220px;
+    }
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        background: #080808;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    header, footer, .no-imprimir {
+        display: none !important;
+    }
+
+    .pagina {
+        width: 210mm;
+        max-width: none;
+        min-height: 297mm;
+        margin: 0;
+        padding: 18mm;
+        border: none;
+        box-shadow: none;
+        break-after: page;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-titulo">Tumbado Guitar</div>
+    <div class="subtitulo">Instrumentos con identidad</div>
+
+    <nav>
+        <a href="#portada">Inicio</a>
+        <a href="#indice">Índice</a>
+        <a href="#marca">La marca</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#productos">Productos</a>
+        <a href="#confianza">Confianza</a>
+        <a href="#contacto">Contacto</a>
+        
+    </nav>
+</header>
+
+<!-- 1. PORTADA -->
+<section class="pagina portada" id="portada">
+    <p style="color:#ff202e;letter-spacing:5px;">
+        CATÁLOGO OFICIAL · 2026
+    </p>
+
+    <img class="logo-imagen"
+         src="logov1.png.jpeg"
+         alt="Logo de Tumbado Guitar">
+
+    <div class="nombre-marca">Tumbado<br>Guitar</div>
+    <div class="raya"></div>
+
+    <h2>Encuentra tu sonido</h2>
+    <p>Instrumentos para crear tu propia historia musical.</p>
+    <p>Estilo · Pasión · Identidad</p>
+</section>
+
+<!-- 2. ÍNDICE -->
+<section class="pagina" id="indice">
+    <h2>02 / Contenido</h2>
+    <p>Explora las secciones de nuestro catálogo.</p>
+
+    <ol class="indice">
+        <li><a href="#portada">01 — Portada</a></li>
+        <li><a href="#indice">02 — Índice</a></li>
+        <li><a href="#marca">03 a 07 — Presentación de la marca</a></li>
+        <li><a href="#categorias">08 a 10 — Categorías musicales</a></li>
+        <li><a href="#productos">11 a 15 — Instrumentos y precios</a></li>
+        <li><a href="#confianza">16 — Confianza y compromiso</a></li>
+        <li><a href="#contacto">17 — Contacto</a></li>
+    </ol>
+
+    <div class="cita">El sonido que te representa.</div>
+</section>
+
+<!-- 3. QUIÉNES SOMOS -->
+<section class="pagina" id="marca">
+    <h2>03 / Quiénes somos</h2>
+    <p>TUMBADO GUITAR es una marca de instrumentos inspirada en la esencia del regional mexicano y la nueva generación de los corridos tumbados. Nacemos de la pasión por la música, las guitarras y un movimiento que ha revolucionado la forma de expresar nuestra cultura e identidad.
+Inspirados por Natanael Cano, uno de los artistas que impulsó este género, buscamos transmitir esa actitud, autenticidad y estilo único a través de nuestros instrumentos. Creemos que una guitarra es mucho más que un instrumento: es el comienzo de una historia, el sonido de los sueños y la voz de una nueva generación.
+Nuestra misión es crear una marca que conecte con quienes llevan la música por dentro, que quieren hacer su propio camino y que encuentran en los corridos tumbados una forma de expresarse.</p>
+    <p>Buscamos reunir instrumentos de diferentes familias en un
+    catálogo visual, claro y fácil de consultar.</p>
+
+    <div class="tarjeta">
+        <h3>Nuestra esencia</h3>
+        <p>Una marca inspirada en la pasión musical, la creatividad
+        y la identidad de los sonidos regionales.</p>
+    </div>
+</section>
+
+<!-- 4. HISTORIA -->
+<section class="pagina">
+    <h2>04 / Nuestra historia</h2>
+    <p>TUMBADO GUITAR nació de un sueño: llevar la esencia de los corridos tumbados a cada guitarra. Inspirados por Natanael Cano y la nueva ola del regional mexicano, creamos una marca que representa actitud, pasión y orgullo por nuestras raíces. Empezamos con la idea de que
+    cada músico tenga un instrumento con estilo propio y el espíritu de una generación que está haciendo historia.</p>
+    <p>El concepto combina fondos oscuros, acentos rojos,
+    tipografía expresiva y fotografías de instrumentos.</p>
+
+    <div class="raya"></div>
+    <h3>La inspiración</h3>
+    <p>La identidad visual busca transmitir carácter, autenticidad
+    y pasión por la música.</p>
+</section>
+
+<!-- 5. MISIÓN Y VISIÓN -->
+<section class="pagina">
+    <h2>05 / Misión y visión</h2>
+    <div class="tarjeta">
+        <h3>Misión</h3>
+        <p>En TUMBADO GUITAR, nuestra misión es apoyar e inspirar a las nuevas generaciones de artistas que buscan abrirse camino en el movimiento de los corridos tumbados. Queremos ofrecer instrumentos con identidad, estilo y esencia mexicana, para que cada talento
+         emergente tenga la oportunidad de expresar su historia, luchar por sus sueños y dejar su propia huella en la música.</p>
+    </div>
+
+    <div class="tarjeta" style="margin-top:20px">
+        <h3>Visión</h3>
+        <p>Convertirnos en una marca referente dentro del movimiento tumbado, impulsando a los nuevos talentos que vienen desde abajo, con hambre de triunfar y ganas de demostrar de qué están hechos. Inspirados por el camino de Natanael Cano y el espíritu de superación que representa su
+         música, queremos ser parte de una generación que transforma sus sueños en realidad, sin olvidar sus raíces ni de dónde viene.</p>
+    </div>
+</section>
+
+<!-- 6. VALORES -->
+<section class="pagina">
+    <h2>06 / Nuestros valores</h2>
+    <div class="contenedor">
+        <div class="tarjeta"><h3>Pasión</h3>
+            <p>La música como forma de expresión.</p></div>
+        <div class="tarjeta"><h3>Autenticidad</h3>
+            <p>Identidad visual con carácter propio.</p></div>
+        <div class="tarjeta"><h3>Claridad</h3>
+            <p>Información comprensible y organizada.</p></div>
+        <div class="tarjeta"><h3>Confianza</h3>
+            <p>Precios y características transparentes.</p></div>
+        <div class="tarjeta"><h3>Creatividad</h3>
+            <p>Inspiración para nuevos músicos.</p></div>
+        <div class="tarjeta"><h3>Compromiso</h3>
+            <p>Atención a las necesidades del comprador.</p></div>
+    </div>
+</section>
+
+<!-- 7. PROPUESTA DE VALOR -->
+<section class="pagina">
+    <h2>07 / Nuestra propuesta</h2>
+    <p>Queremos que encontrar un instrumento sea una experiencia
+    sencilla, visual y accesible.</p>
+
+    <div class="tarjeta">
+        <h3>¿Qué ofrecemos?</h3>
+        <p>• Catálogo organizado por categorías.</p>
+        <p>• Fotografías de productos.</p>
+        <p>• Características y usos musicales.</p>
+        <p>• Precios de referencia en pesos mexicanos.</p>
+        <p>• Diseño visual inspirado en la música regional.</p>
+    </div>
+
+    <div class="cita">Tu música. Tu estilo. Tu camino.</div>
+</section>
+
+<!-- 8. CUERDAS -->
+<section class="pagina" id="categorias">
+    <h2>08 / Instrumentos de cuerda</h2>
+
+    <div class="contenedor">
+        <div class="tarjeta instrumento">
+            <img class="foto-producto"
+                 src="guita.jpeg" alt="Guitarra">
+            <h3>Guitarra</h3>
+            <p>Ideal para acordes, melodías y acompañamientos.</p>
+        </div>
+
+        <div class="tarjeta instrumento">
+            <img class="foto-producto"
+                 src="doce.jpeg" alt="Docerola">
+            <h3>Docerola</h3>
+            <p>Instrumento de cuerdas para armonía y acompañamiento.</p>
+        </div>
+
+        <div class="tarjeta instrumento">
+            <img class="foto-producto"
+                 src="bajo.jpeg" alt="Bajo sexto">
+            <h3>Bajo sexto</h3>
+            <p>Aporta ritmo y armonía a conjuntos regionales.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 9. VIENTO -->
+<section class="pagina">
+    <h2>09 / Instrumentos de viento</h2>
+
+    <div class="contenedor">
+        <div class="tarjeta instrumento">
+            <img class="foto-producto"
+                 src="acordeon (2).jpeg" alt="Acordeón">
+            <h3>Acordeón</h3>
+            <p>Melodías expresivas mediante teclas o botones y fuelle.</p>
+        </div>
+
+        <div class="tarjeta instrumento">
+            <img class="foto-producto"
+                 src="trope.jpeg" alt="Trompeta">
+            <h3>Trompeta</h3>
+            <p>Sonido brillante y potente para melodías.</p>
+        </div>
+
+        <div class="tarjeta instrumento">
+            <img class="foto-producto"
+                 src="tuba.jpeg" alt="Tuba">
+            <h3>Tuba</h3>
+            <p>Sonidos graves que dan cuerpo al conjunto musical.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 10. ACOMPAÑAMIENTO -->
+<section class="pagina">
+    <h2>10 / Sonidos graves</h2>
+
+    <div class="tarjeta instrumento">
+        <img class="foto-producto"
+             src="tolo.jpeg" alt="Tololoche">
+        <h3>Tololoche</h3>
+        <p>Instrumento de cuerda que sostiene el pulso y la base grave.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>¿Cómo elegir?</h3>
+        <p>Considera el estilo musical, los materiales, la comodidad,
+        el estado del instrumento y el presupuesto.</p>
+    </div>
+</section>
+
+<!-- 11. ACORDEÓN -->
+<section class="pagina" id="productos">
+    <h2>11 / Acordeón</h2>
+    <div class="tarjeta instrumento">
+        <img class="foto-producto"
+             src="acordeon.jpeg" alt="Acordeón">
+        <h3>Acordeón regional</h3>
+        <p>Instrumento de fuelle para melodías y acompañamientos.</p>
+        <p><b>Variantes:</b> de botones y de teclas.</p>
+        <p><b>Ideal para:</b> música norteña y regional.</p>
+        <div class="precio">$8,500 MXN</div>
+        <p class="nota">Precio ilustrativo, no cotización verificada.</p>
+    </div>
+</section>
+
+<!-- 12. GUITARRA -->
+<section class="pagina">
+    <h2>12 / Guitarra</h2>
+    <div class="tarjeta instrumento">
+        <img class="foto-producto"
+             src="guita.jpeg" alt="Guitarra">
+        <h3>Guitarra acústica</h3>
+        <p>Versátil para practicar, componer y acompañar canciones.</p>
+        <p><b>Características:</b> cuerpo resonante y cuerdas.</p>
+        <p><b>Ideal para:</b> principiantes y músicos experimentados.</p>
+        <div class="precio">$2,500 MXN</div>
+        <p class="nota">Precio ilustrativo, no cotización verificada.</p>
+    </div>
+</section>
+
+<!-- 13. TROMPETA -->
+<section class="pagina">
+    <h2>13 / Trompeta</h2>
+    <div class="tarjeta instrumento">
+        <img class="foto-producto"
+             src="trope.jpeg" alt="Trompeta">
+        <h3>Trompeta musical</h3>
+        <p>Instrumento de viento-metal con gran proyección sonora.</p>
+        <p><b>Revisar:</b> válvulas, afinación y estado general.</p>
+        <p><b>Ideal para:</b> melodías y arreglos de conjunto.</p>
+        <div class="precio">$4,500 MXN</div>
+        <p class="nota">Precio ilustrativo, no cotización verificada.</p>
+    </div>
+</section>
+
+<!-- 14. TOLOLOCHE -->
+<section class="pagina">
+    <h2>14 / Tololoche</h2>
+    <div class="tarjeta instrumento">
+        <img class="foto-producto"
+             src="tolo.jpeg" alt="Tololoche">
+        <h3>Tololoche acústico</h3>
+        <p>Instrumento de registro grave para sostener el ritmo musical.</p>
+        <p><b>Revisar:</b> estructura, cuerdas y comodidad al tocar.</p>
+        <div class="precio">$6,500 MXN</div>
+        <p class="nota">Precio ilustrativo, no cotización verificada.</p>
+    </div>
+</section>
+
+<!-- 15. OTROS PRODUCTOS -->
+<section class="pagina">
+    <h2>15 / Más instrumentos</h2>
+
+    <div class="contenedor">
+        <div class="tarjeta instrumento">
+            <img class="foto-producto"
+                 src="doce.jpeg" alt="Docerola">
+            <h3>Docerola</h3>
+            <p>Para acompañamiento y armonía.</p>
+            <div class="precio">$5,500 MXN</div>
+        </div>
+
+        <div class="tarjeta instrumento">
+            <img class="foto-producto"
+                 src="tuba.jpeg" alt="Tuba">
+            <h3>Tuba</h3>
+            <p>Sonidos graves y potentes.</p>
+            <div class="precio">$18,000 MXN</div>
+        </div>
+
+        <div class="tarjeta instrumento">
+            <img class="foto-producto"
+                 src="bajo.jpeg" alt="Bajo sexto">
+            <h3>Bajo sexto</h3>
+            <p>Ritmo y acompañamiento regional.</p>
+            <div class="precio">$7,500 MXN</div>
+        </div>
+    </div>
+
+    <p class="nota">
+        Precios de ejemplo para el proyecto escolar. Confirma los
+        precios reales según marca, modelo y proveedor.
+    </p>
+</section>
+
+<!-- 16. CONFIANZA -->
+<section class="pagina" id="confianza">
+    <h2>16 / Confianza y compromiso</h2>
+
+    <div class="cita">
+        Un buen instrumento inspira nuevas historias.
+    </div>
+
+    <div class="tarjeta">
+        <h3>Nuestro compromiso</h3>
+        <p>Buscamos presentar información clara, facilitar la comparación
+        de productos y orientar al cliente en su elección.</p>
+    </div>
+
+    <h3>Lo que valoramos</h3>
+    <p>• Descripciones transparentes.</p>
+    <p>• Información sobre materiales y características.</p>
+    <p>• Confirmación de precios y disponibilidad.</p>
+    <p>• Atención a las dudas de los compradores.</p>
+
+    <p class="nota">
+        Esta sección describe el compromiso de la marca; no contiene
+        testimonios reales ni certificaciones comerciales.
+    </p>
+</section>
+
+<!-- 17. CONTRAPORTADA -->
+<section class="pagina portada" id="contacto">
+    <img class="logo-imagen"
+         src="logov1.png.jpeg"
+         alt="Logo Tumbado Guitar">
+
+    <div class="nombre-marca">Tumbado<br>Guitar</div>
+    <div class="raya"></div>
+
+    <h2>Haz sonar tu estilo</h2>
+    <p>Encuentra el instrumento que acompaña tu historia musical.</p>
+
+    <div class="tarjeta" style="width:100%; margin-top:25px">
+        <h3>Contáctanos</h3>
+        <p>Instagram: @TumbadoGuitar</p>
+        <p>WhatsApp:5650713100 </p>
+        <p>Correo: tumbadoguitar@gmail.com</p>
+        
+    </div>
+
+    <p class="nota">Consulta disponibilidad y precios actualizados.</p>
+</section>
+
+<footer>
+    <div class="logo-titulo">Tumbado Guitar</div>
+    <p>Instrumentos con identidad.</p>
+</footer>
+
+</body>
+</html>
